@@ -1,3 +1,7 @@
+#include<cstdio>
+
+int main()
+{
 int i;
 int dup = 0;  //let dup is duplicate.
 
@@ -19,7 +23,13 @@ int dup = 0;  //let dup is duplicate.
 
 // in the array will be the duplicate.
 
+int arr[1000];
 
-for(i = 0; i < N; i++) {
+for(i=0;i<100;i++)
+scanf("%d",&arr[i]);  //take values of array.
+
+for(i = 0; i < 100; i++) {
     dup = dup ^ arr[i] ^ i;
+}
+
 }
