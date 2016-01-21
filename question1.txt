@@ -1,0 +1,25 @@
+int i;
+int dup = 0;  //let dup is duplicate.
+
+//This can be done by making use of the XOR operator.
+
+//Lets say we have an array of size 5: 4, 3, 1, 2, 2
+
+//Which are at the index:   0, 1, 2, 3, 4
+
+//Now do an XOR of all the elements and all the indices.
+
+// We get 2, which is the duplicate element.
+ 
+//This happens because, 0 plays no role in the XORing.
+
+// The remaining n-1 indices pair with same
+
+//n-1 elements in the array and the only unpaired element
+
+// in the array will be the duplicate.
+
+
+for(i = 0; i < N; i++) {
+    dup = dup ^ arr[i] ^ i;
+}
