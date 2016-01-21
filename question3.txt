@@ -1,0 +1,65 @@
+steps:
+
+1) Sort all the elements of the array.
+2) Keep 2 index variables for left and right index.
+3) Initialize: left index l = 0. r = n-1.
+4) sum = a[l]+a[r]
+5) If sum is negative than l++ else r — .
+6) Keep track of absolute min sum.
+7) Repeat steps 4,5,6 until l < r
+ 
+
+Implementation:
+Sorting function (Quick Sort already explained in our previous posts. Quick Sort)
+/* Function to print pair of elements having minimum sum */
+void minAbsSumPair(int arr[], int n)
+{
+    int l, r , min_sum, sum = 0, min_l, min_r;
+ 
+    /* Array should have at least two elements*/
+    if(n < 2)
+    {
+        printf("Invalid Input");
+        return;
+    } 
+ 
+    /* Sort the elements */
+    quickSort(arr, 0, n-1);
+ 
+ 
+    /* Start looking for the pair  */
+    l = 0; r = n-1;
+    min_sum = arr[l] + arr[r];
+    min_l = l; 
+    min_r = r; 
+     
+    while(l < r)
+    {
+        sum = arr[l] + arr[r];
+ 
+        /*If abs(sum) is less then update the result items*/
+        if(abs(sum) < abs(min_sum))
+        {
+            min_sum = sum;
+            min_l = l;
+            min_r = r;
+        }
+        if(sum < 0)
+            l++;
+        else
+            r--;
+ 
+    }
+ 
+    printf(" The two elements whose sum is minimum are %d and %d",
+    arr[min_l], arr[min_r]);
+}
+ 
+/* Main program to test above function */
+int main()
+{
+    int arr[] = {15, 5, -20, 30, -45};
+    minAbsSumPair(arr, 5);
+    getchar();
+    return 0;
+}
